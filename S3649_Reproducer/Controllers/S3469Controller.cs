@@ -14,7 +14,7 @@ namespace S3649_Reproducer.Controllers
         }
 
         [HttpGet("exists1/{name}")]
-        public bool GetEntityExists1(string name)
+        public bool GetEntityExists1([FromRoute] string name)
         {
             return EntityExists1(name);
         }
@@ -27,7 +27,7 @@ namespace S3649_Reproducer.Controllers
         }
 
         [HttpGet("exists2/{name}")]
-        public bool GetEntityExists2(string name)
+        public bool GetEntityExists2([FromRoute] string name)
         {
             return EntityExists2(name);
         }
