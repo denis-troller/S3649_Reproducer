@@ -13,8 +13,8 @@ namespace S3649_Reproducer.Controllers
             _ctx = ctx;
         }
 
-        [HttpGet("exists1/{name}")]
-        public bool GetEntityExists1([FromRoute] string name)
+        [HttpGet()]
+        public bool GetEntityExists1(string name)
         {
             return EntityExists1(name);
         }
@@ -26,17 +26,5 @@ namespace S3649_Reproducer.Controllers
             return e2.Any();
         }
 
-        [HttpGet("exists2/{name}")]
-        public bool GetEntityExists2([FromRoute] string name)
-        {
-            return EntityExists2(name);
-        }
-
-        private bool EntityExists2(string name)
-        {
-            var query = "SELECT Id FROM Entity1s WHERE Name = '" + name + "'";
-            var e2 = _ctx.Database.SqlQueryRaw<int>(query).ToList();
-            return e2.Any();
-        }
     }
 }
